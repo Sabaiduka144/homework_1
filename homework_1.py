@@ -40,3 +40,18 @@ print("Your daily calorie intake should be:", round(dci))
 print("To gain weight:", round(dci + 500))
 print("To lose weight", round(dci - 500))
 print("***************")
+
+
+print("***************")
+hourly_pay = int(input("Enter hourly pay: "))
+hours_worked = int(input("Enter hours worked this week: "))
+weekly_pay = hourly_pay * hours_worked
+daily_pay = weekly_pay / 5
+monthly_pay = weekly_pay * 4
+yearly_pay = monthly_pay * 12
+
+print("Your daily pay is:", daily_pay)
+print("Your weekly pay is:", weekly_pay)
+print("Your monthly pay is:", monthly_pay)
+print("Your yearly pay is:", yearly_pay)
+print("***************")
