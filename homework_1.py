@@ -23,7 +23,7 @@ print("***************")
 
 minutes = int(input("Enter a minute: "))
 hours = minutes / 60
-print(minutes, "minute equals to ", hours, "hours")
+print(minutes, "minute equals to ", round(hours), "hours")
 
 
 
@@ -39,7 +39,6 @@ print("***************")
 print("Your daily calorie intake should be:", round(dci))
 print("To gain weight:", round(dci + 500))
 print("To lose weight", round(dci - 500))
-print("***************")
 
 
 print("***************")
