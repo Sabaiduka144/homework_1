@@ -25,8 +25,6 @@ minutes = int(input("Enter a minute: "))
 hours = minutes / 60
 print(minutes, "minute equals to ", round(hours), "hours")
 
-
-
 print("***************")
 height = int(input("Insert your height: "))
 weight = int(input("Insert your weight: "))
