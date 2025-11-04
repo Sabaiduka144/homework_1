@@ -1,17 +1,17 @@
-name = "Saba"
-age = "15"
-has_coded_bef = True
-fav_lang = "Python"
+name = input("What is your name?")
+age = int(input("How old are you?"))
+has_coded_bef = input("Have you coded before? (yes/no)").lower()
+fav_lang = input("What is your favorite programming language?")
 
 print("***************")
 print(f"Name: {name}")
 print(f"Age: {age}")
-print(f"Has coded before? {'Yes' if has_coded_bef else 'No'}")
+print(f"Has coded before? {'yes' if has_coded_bef else 'no'}")
 print(f"Favorite programming language: {fav_lang}")
 print("***************")
 
-num_1 = int(input("Input number: "))
-num_2 = int(input("Input another number: "))
+num_1 = (input("Input number: "))
+num_2 = (input("Input another number: "))
 
 print("***************")
 print(f"\nComparing strings: '{num_1}' > '{num_2}' = {num_1 > num_2}")
@@ -45,5 +45,4 @@ elif energy <= 2:
 else:
     print("That number isn’t on the 1–5 scale. Try again!")
     
-if minutes > 180 and energy >= 4:
-    print("Packed study schedule!")
+print("Packes study shedule!" if minutes > 180 and energy >= 4 else "Not enough!")
