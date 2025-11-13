@@ -24,7 +24,7 @@ print("\nYour hero sheet:")
 for key, value in hero.items():
     print(f" {key}: {value}")
     
-print("\n🧰 You find a wooden chest...")
+print("\nYou find a wooden chest...")
 
 chest = [
     {"name": "sword", "damage": 10, "rarity": "common", "weight": 5},
@@ -82,7 +82,7 @@ while hero["hp"] > 0 and goblin["hp"] > 0:
         print(f"You strike the goblin! It now has {goblin['hp']} HP left.")
     
         if goblin["hp"] <= 0:
-            print("💥 The goblin has been defeated!")
+            print("The goblin has been defeated!")
             break
     
         hero["hp"] -= goblin["damage"]
@@ -94,7 +94,7 @@ while hero["hp"] > 0 and goblin["hp"] > 0:
     else:
         print("Invalid action. Try again!")
 
-print("\n🏆 Battle results:")
+print("\nBattle results:")
 
 if hero["hp"] > 0 and goblin["hp"] <= 0:
     print(f"You won! You gain {goblin['reward']['xp']} XP and {goblin['reward']['gold']} gold.")
@@ -114,14 +114,14 @@ if hero['xp'] >= 10:
     while hero['xp'] >= 10:
         hero["xp"] -= 10
         hero["level"] += 1
-        print(f"🎉 Level up! You are now level {hero['level']}")
+        print(f"Level up! You are now level {hero['level']}")
            
-print("\n📜 Final Hero Stats:")
+print("\nFinal Hero Stats:")
 for key, value in hero.items():
     if key != "inventory":
         print(f"{key}: {value}")
 
-print("\n🎒 Inventory contains:")
+print("\nInventory contains:")
 for item in hero["inventory"]:
     print("-", item["name"])
 
