@@ -1,51 +1,90 @@
-import time
-unprinted_designs = ["Phone case", "Shirt", "Cup"]
-completed_designs = []
+import random
+from datetime import datetime
 
-while unprinted_designs:
-    just_printed = unprinted_designs.pop()
-    print(f"Just Printed {just_printed}")
-    completed_designs.append(just_printed)
-    time.sleep(1)
-    
-for design in completed_designs:
-    print(f"Completed Design: {design}")
-    time.sleep(1)
+def square(number):
+    return number ** 2
 
-def make_pizza(size, **toppings):
-    print(f"Make {size}-Size Pizza With The Following Ingredients: ")
-    for key, topping in enumerate(toppings):
-        print(f"{key + 1}. {topping}")
-        time.sleep(1)
-    
-make_pizza(16, meat="peperonni", cheese="chedar", tomatos="tomatoes")
-
-cars = [
-    {"brand": "Subaru", "model": "Outback", "color": "Blue"},
-    {"brand": "Subaru", "model": "Forester", "color": "Blue"},
-    {"brand": "BMW", "model": "X5", "color": "Black"},
-    {"brand": "BMW", "model": "M5", "color": "Black"},
-    {"brand": "Toyota", "model": "Corolla", "color": "White"},
-    {"brand": "Honda", "model": "Civic", "color": "Red"}
-]
-
-def find_car(brand):
-    brand = brand.title()
-
-    matches = []
-    for car in cars:
-        if car["brand"] == brand:
-            matches.append(car)
+def shift_and_square(number, offset):
+    return square(number + offset)
 
 
-    if not matches:
-        print("No cars found.")
-        return
+print("Task 1 Demonstration:")
+print("square(5) =", square(5))
+print("shift_and_square(3, 2) =", shift_and_square(3, 2))
+print()
 
-    for car in matches:
-        print("Finding...")
-        time.sleep(2.3)
-        print(f"Found Car: {car['brand']} {car['model']} (Color: {car['color']})")
+def check_balance():
+    return random.choice([True, False])
 
-    print(f"Completed in {2.3 * len(matches)} seconds")
-find_car("subaru")
+
+def complete_transaction(total=10.0, **kwargs):
+    order = {
+        "status": "success",
+        "order_id": random.randint(1000, 9999),
+        "total": total,
+        "metadata": kwargs
+    }
+    print(f"Transaction completed! Order ID: {order['order_id']}")
+    return order
+
+
+def place_order(total=10.0):
+    if check_balance():
+        return complete_transaction(total=total)
+    else:
+        return {
+            "status": "failed",
+            "order_id": None,
+            "total": total,
+        }
+
+
+print("Task 2 Demonstration:")
+results = []
+for i in range(3):
+    results.append(place_order())
+
+for i, result in enumerate(results, start=1):
+    if result["status"] == "success":
+        print(f"Attempt {i}: SUCCESS — Order ID {result['order_id']}, Total: {result['total']}")
+    else:
+        print(f"Attempt {i}: FAILED — Insufficient balance.")
+print()
+
+print("Task 3 Demonstration:")
+print("square(4) =", square(4))
+print("shift_and_square(5, 3) =", shift_and_square(5, 3))
+print()
+
+def safe_place_order(max_attempts=3):
+    for attempt in range(1, max_attempts + 1):
+        print(f"Safe attempt {attempt}...")
+        result = place_order()
+
+        if result["status"] == "success":
+            print("Success on attempt", attempt)
+            return result
+
+        print("Failed attempt", attempt)
+
+    print("All attempts failed.")
+    return None
+
+
+print("Task 4 Demonstration:")
+safe_place_order()
+print()
+
+def log(message):
+    print(f"[{datetime.now()}] >> {message}")
+
+
+log("Logger example working.")
+
+def run_tests():
+    assert square(3) == 9
+    assert shift_and_square(2, 3) == (2 + 3) ** 2
+    print("All mini-tests passed!")
+
+
+run_tests()
